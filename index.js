@@ -17,12 +17,15 @@ for (var i=0; i<numberOfDrums; i++) {
         
         makeSound(buttonInnerHTML);
 
+        buttonAnimation(buttonInnerHTML);
+
     });
 }
 
 document.addEventListener("keypress", function(event) {
     
     makeSound(event.key);
+    buttonAnimation(event.key);
     console.log(event.key + ' was pressed....');
 
 });
@@ -72,6 +75,12 @@ function makeSound(key) {
     }
 }
 
+
+function buttonAnimation(currentKey) {
+
+    var activeButton = document.querySelector('.' + currentKey);
+    activeButton.classList.add("pressed");
+}
 
 
 // var tom1 = new Audio('sounds/tom-1.mp3');
